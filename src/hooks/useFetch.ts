@@ -1,4 +1,4 @@
-import { get } from '@/api.ts';
+import { get } from '@/api.js';
 import { BlogPostsResponse } from '@/types.ts';
 import { useEffect, useState } from 'react';
 

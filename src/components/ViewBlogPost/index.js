@@ -1,2 +1,2 @@
-export * from './ViewBlogPost.tsx';
-export { default } from './ViewBlogPost.tsx';
+export * from './ViewBlogPost.jsx';
+export { default } from './ViewBlogPost.jsx';

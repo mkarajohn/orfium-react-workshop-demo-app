@@ -1,4 +1,4 @@
-export function post(url: string, data: { title: string; description: string; content: string }) {
+export function post(url, data) {
   return fetch(url, {
     method: 'post',
     headers: {
@@ -14,7 +14,7 @@ export function post(url: string, data: { title: string; description: string; co
     });
 }
 
-export function get(url: string, signal: AbortSignal) {
+export function get(url, signal) {
   return fetch(url, { signal })
     .then((response) => {
       return response.json();

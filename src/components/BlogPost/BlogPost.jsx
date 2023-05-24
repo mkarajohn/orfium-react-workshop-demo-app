@@ -1,11 +1,6 @@
-import { BlogPostData } from '@/types.ts';
 // import { marked } from 'marked';
 // import sanitizeHtml from 'sanitize-html';
 import './BlogPost.css';
-
-export type Props = {
-  blogData: BlogPostData;
-};
 
 function BlogPost() {
   return (

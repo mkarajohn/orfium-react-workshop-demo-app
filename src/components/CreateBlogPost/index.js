@@ -1,2 +1,2 @@
-export * from './CreateBlogPost.tsx';
-export { default } from './CreateBlogPost.tsx';
+export * from './CreateBlogPost.jsx';
+export { default } from './CreateBlogPost.jsx';

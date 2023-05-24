@@ -1,14 +1,6 @@
 import './BlogListItem.css';
 
-export type Props = {
-  id: string;
-  title: string;
-  description: string;
-  onSelect: (x: string) => void;
-  selected: boolean;
-};
-
-function BlogListItem(props: Props) {
+function BlogListItem(props) {
   const { selected } = props;
 
   return (

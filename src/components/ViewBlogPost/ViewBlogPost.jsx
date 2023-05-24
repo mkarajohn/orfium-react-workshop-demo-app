@@ -1,12 +1,6 @@
-import { BlogPostData } from '@/types.ts';
 import './ViewBlogPost.css';
 
-export type Props = {
-  selectedBlog: BlogPostData | null;
-  onClose: () => void;
-};
-
-function ViewBlogPost(props: Props) {
+function ViewBlogPost(props) {
   const { selectedBlog } = props;
 
   return selectedBlog ? (
