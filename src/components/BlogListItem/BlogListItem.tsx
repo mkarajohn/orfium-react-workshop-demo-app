@@ -1,4 +1,3 @@
-import { memo, useState } from 'react';
 import './BlogListItem.css';
 
 export type Props = {
@@ -10,44 +9,17 @@ export type Props = {
 };
 
 function BlogListItem(props: Props) {
-  const { id, title, description, onSelect, selected } = props;
-  const [expanded, setExpanded] = useState(false);
+  const { selected } = props;
 
   return (
-    <div
-      tabIndex={0}
-      className={`blog-list-item ${selected ? 'selected' : ''}`}
-      onClick={(e) => {
-        e.stopPropagation();
-        onSelect(id);
-      }}
-      onKeyDown={(e) => {
-        if (e.code === 'Enter' || e.code === 'Space') {
-          e.stopPropagation();
-          onSelect(id);
-        }
-      }}
-    >
+    <div tabIndex={0} className={`blog-list-item ${selected ? 'selected' : ''}`}>
       <div>
-        <span>{title}</span>
-        {description ? (
-          <button
-            tabIndex={0}
-            onClick={(e) => {
-              e.stopPropagation();
-              setExpanded(!expanded);
-            }}
-            onKeyDown={(e) => {
-              e.stopPropagation();
-            }}
-          >
-            {expanded ? '-' : '+'}
-          </button>
-        ) : null}
+        <span> {/* Rest of the owl here */}</span>
+        {/* Rest of the owl here */}
       </div>
-      {expanded ? <div>{description}</div> : null}
+      {/* Rest of the owl here */}
     </div>
   );
 }
 
-export default memo(BlogListItem);
+export default BlogListItem;
