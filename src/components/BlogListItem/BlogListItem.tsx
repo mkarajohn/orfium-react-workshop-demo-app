@@ -1,4 +1,5 @@
 import { memo, useState } from 'react';
+import './BlogListItem.css';
 
 export type Props = {
   id: string;
@@ -15,11 +16,7 @@ function BlogListItem(props: Props) {
   return (
     <div
       tabIndex={0}
-      className={`cursor-pointer rounded border transition-all ${
-        selected
-          ? 'scale-105 border border-gray-300 bg-white shadow-md'
-          : 'border-gray-200 bg-white shadow-none'
-      }`}
+      className={`blog-list-item ${selected ? 'selected' : ''}`}
       onClick={(e) => {
         e.stopPropagation();
         onSelect(id);
@@ -31,12 +28,11 @@ function BlogListItem(props: Props) {
         }
       }}
     >
-      <div className="flex items-center justify-between p-4">
-        <span className="truncate pr-4 text-xl">{title}</span>{' '}
+      <div>
+        <span>{title}</span>
         {description ? (
           <button
             tabIndex={0}
-            className="h-8 w-8 shrink-0 border-gray-300 p-0"
             onClick={(e) => {
               e.stopPropagation();
               setExpanded(!expanded);
@@ -49,7 +45,7 @@ function BlogListItem(props: Props) {
           </button>
         ) : null}
       </div>
-      {expanded ? <div className="truncate p-4 pt-0 text-base">{description}</div> : null}
+      {expanded ? <div>{description}</div> : null}
     </div>
   );
 }

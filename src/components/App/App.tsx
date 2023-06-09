@@ -36,8 +36,8 @@ function App() {
   }
 
   return (
-    <main className="flex h-screen w-screen">
-      <div className="relative z-10  w-96 shrink-0 bg-gray-50 shadow-xl shadow-gray-300">
+    <main className="app-wrapper">
+      <div className="sidebar-wrapper">
         <Sidebar
           ref={blogsListRef}
           blogposts={data}
@@ -47,7 +47,7 @@ function App() {
           setMode={setMode}
         />
       </div>
-      <div className="relative grow overflow-auto bg-gray-100 p-8 pl-16">
+      <div className="main-content-wrapper">
         {mode === 'view' ? (
           data ? (
             <ViewBlogPost

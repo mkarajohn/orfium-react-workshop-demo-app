@@ -1,6 +1,7 @@
 import BlogListItem from '@/components/BlogListItem';
 import type { BlogPostsResponse, Mode } from '@/types.ts';
 import { ForwardedRef, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import './Sidebar.css';
 
 export type Props = {
   blogposts: BlogPostsResponse | null;
@@ -54,19 +55,18 @@ const Sidebar = forwardRef(function Sidebar(props: Props, ref: ForwardedRef<HTML
   const keys = Object.keys(filteredBlogposts);
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="sidebar">
       <input
         tabIndex={2}
         placeholder="Search blog posts"
         type="search"
-        className="w-full border-b border-gray-300 px-4 py-6 shadow-inner"
         value={searchTerm}
         onChange={(e) => {
           setSearchTerm(e.target.value);
         }}
       />
-      <div ref={localRef} className="grow gap-4 overflow-auto p-4">
-        <div ref={ref} className="flex grow flex-col gap-4">
+      <div ref={localRef}>
+        <div ref={ref}>
           {blogposts ? (
             keys.map((key) => {
               return (
@@ -85,11 +85,11 @@ const Sidebar = forwardRef(function Sidebar(props: Props, ref: ForwardedRef<HTML
           )}
         </div>
       </div>
-      <div className="flex shrink-0 flex-col p-4 pb-8">
+      <div>
         {mode === 'view' ? (
           <button
+            className="create"
             tabIndex={0}
-            className="border bg-green-300 text-green-900 hover:border-green-900"
             onClick={() => {
               setMode('create');
             }}
@@ -98,8 +98,8 @@ const Sidebar = forwardRef(function Sidebar(props: Props, ref: ForwardedRef<HTML
           </button>
         ) : (
           <button
+            className="cancel"
             tabIndex={0}
-            className="border bg-red-300 text-red-900 hover:border-red-900"
             onClick={() => {
               setMode('view');
             }}

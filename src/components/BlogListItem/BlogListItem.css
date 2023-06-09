@@ -1,0 +1,23 @@
+.blog-list-item {
+  @apply cursor-pointer rounded border border-gray-200 bg-gray-100 shadow-none transition-all;
+}
+
+.blog-list-item.selected {
+  @apply scale-105 border border-gray-300 bg-white shadow-md;
+}
+
+.blog-list-item > :last-child {
+  @apply truncate p-4 pt-0 text-base;
+}
+
+.blog-list-item > :first-child {
+  @apply flex items-center justify-between p-4;
+}
+
+.blog-list-item > :first-child > :first-child {
+  @apply truncate pr-4 text-xl;
+}
+
+.blog-list-item > :first-child > button {
+  @apply h-8 w-8 shrink-0 border-gray-300 p-0;
+}

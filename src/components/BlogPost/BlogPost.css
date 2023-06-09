@@ -1,0 +1,15 @@
+.blogpost {
+  @apply flex h-full w-full min-w-0 flex-col gap-8 rounded-2xl bg-white p-8 shadow-xl;
+}
+
+.blogpost > h1 {
+  @apply word-break-break-word line-clamp-3 shrink-0;
+}
+
+.blogpost > h2 {
+  @apply word-break-break-word line-clamp-2 shrink-0;
+}
+
+.blogpost > div {
+  @apply word-break-break-word grow overflow-auto break-words;
+}

@@ -1,0 +1,7 @@
+.close-blogpost-button {
+  @apply fixed right-8 top-8 rounded-2xl bg-white;
+}
+
+.no-selected-blogpost-message {
+  @apply p-4 text-xl italic;
+}

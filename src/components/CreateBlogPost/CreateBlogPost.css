@@ -1,0 +1,20 @@
+.create-blogpost-wrapper {
+  @apply relative flex h-full gap-8;
+}
+
+.create-blogpost-wrapper > form {
+  @apply flex h-full w-full shrink-0 grow basis-1/2 flex-col items-start gap-4;
+}
+
+.create-blogpost-wrapper > form > input,
+.create-blogpost-wrapper > form > textarea {
+  @apply w-full rounded border border-gray-300 p-4 shadow-inner;
+}
+
+.create-blogpost-wrapper > form > textarea {
+  @apply grow;
+}
+
+.create-blogpost-wrapper > form > button {
+  @apply w-1/3 self-center border bg-green-300 text-green-900 hover:border-green-900 disabled:border-gray-300 disabled:bg-gray-300 disabled:text-white;
+}

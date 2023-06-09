@@ -1,5 +1,6 @@
 import BlogPost from '@/components/BlogPost';
 import { BlogPostData } from '@/types.ts';
+import './ViewBlogPost.css';
 
 export type Props = {
   selectedBlog: BlogPostData | null;
@@ -11,13 +12,13 @@ function ViewBlogPost(props: Props) {
 
   return selectedBlog ? (
     <>
-      <button tabIndex={1} className="fixed right-8 top-8 rounded-2xl bg-white" onClick={onClose}>
+      <button tabIndex={1} className="close-blogpost-button" onClick={onClose}>
         Close
       </button>
       <BlogPost blogData={selectedBlog} />
     </>
   ) : (
-    <div className="p-4 text-xl italic">Select a blog post</div>
+    <div className="no-selected-blogpost-message">Select a blog post</div>
   );
 }
 
