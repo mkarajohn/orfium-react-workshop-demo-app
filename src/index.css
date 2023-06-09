@@ -123,3 +123,7 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.word-break-break-word {
+  word-break: break-word;
+}
