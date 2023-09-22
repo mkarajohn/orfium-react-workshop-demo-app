@@ -9,6 +9,7 @@ import './App.css';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { mangle } from 'marked-mangle';
+import { flushSync } from 'react-dom';
 
 marked.use({ ...mangle(), headerIds: false });
 
@@ -20,15 +21,17 @@ function App() {
 
   function handleNewPostSuccess(newPostID: string, newPostData: BlogPostData) {
     setMode('view');
-    setLocalData({ ...data, [newPostID]: newPostData });
-    setSelected(newPostID);
-    setTimeout(() => {
-      blogsListRef.current?.parentElement?.scroll({
-        left: 0,
-        top: blogsListRef.current?.offsetHeight,
-        behavior: 'smooth',
-      });
-    }, 100);
+    // force a sync commit of these 2 in order for the dom to have been updated
+    // by the time the scroll happens
+    flushSync(() => {
+      setLocalData({ ...data, [newPostID]: newPostData });
+      setSelected(newPostID);
+    });
+    blogsListRef.current?.parentElement?.scroll({
+      left: 0,
+      top: blogsListRef.current?.offsetHeight,
+      behavior: 'smooth',
+    });
   }
 
   function handleCloseBlogPostView() {
